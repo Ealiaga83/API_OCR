@@ -1,5 +1,5 @@
-# Usa una imagen base de Python
-FROM python:3.10-slim
+# Usa una imagen base de Python más completa (buster)
+FROM python:3.10-buster
 
 # Instalar dependencias del sistema necesarias
 RUN apt-get update && apt-get install -y \
