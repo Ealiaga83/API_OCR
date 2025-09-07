@@ -1,12 +1,14 @@
-# Usa una imagen base de Python más completa (buster)
-FROM python:3.10-buster
+# Usa una imagen base de Python
+FROM python:3.10-slim
 
 # Instalar dependencias del sistema necesarias
 RUN apt-get update && apt-get install -y \
     gcc \
     krb5-config \
     libkrb5-dev \
-    libgl1-mesa-glx \
+    libglvnd0 \
+    libglvnd-dev \
+    mesa-utils \
     libglib2.0-0 \
     tesseract-ocr \
     libtesseract-dev \
