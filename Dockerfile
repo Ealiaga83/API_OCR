@@ -1,24 +1,27 @@
-# Imagen base ligera con Python
+# Usa una imagen base de Python
 FROM python:3.10-slim
 
-# Instalar Tesseract y Poppler
+# Instalar dependencias del sistema necesarias
 RUN apt-get update && apt-get install -y \
+    gcc \
+    krb5-config \
+    libkrb5-dev \
     tesseract-ocr \
     libtesseract-dev \
     poppler-utils \
     && apt-get clean
 
-# Crear directorio de trabajo
+# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar archivos del proyecto
+# Copiar el contenido de tu proyecto
 COPY . .
 
-# Instalar dependencias
+# Instalar las dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Exponer el puerto que usará FastAPI
+# Exponer el puerto de la app (si es necesario)
 EXPOSE 8000
 
-# Comando para iniciar la API
+# Comando para ejecutar la aplicación
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
