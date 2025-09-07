@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y \
     gcc \
     krb5-config \
     libkrb5-dev \
-    libgl1-mesa-glx \    # Añadir librería de OpenGL necesaria para OpenCV
-    libglib2.0-0 \       # Añadir librería de glib necesaria para OpenCV
+    libgl1-mesa-glx \
+    libglib2.0-0 \
     tesseract-ocr \
     libtesseract-dev \
     poppler-utils \
